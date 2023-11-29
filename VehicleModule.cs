@@ -1,7 +1,6 @@
 ﻿using AltV.Atlas.Vehicles.Client.Base;
 using AltV.Atlas.Vehicles.Client.Factories;
 using AltV.Atlas.Vehicles.Client.Interfaces;
-using AltV.Net.Client;
 using AltV.Net.Client.Elements.Entities;
 using AltV.Net.Client.Elements.Factories;
 using AltV.Net.Client.Elements.Interfaces;
@@ -20,7 +19,6 @@ public static class VehicleModule
     /// <returns>The service collection</returns>
     public static IServiceCollection RegisterVehicleModule( this IServiceCollection serviceCollection )
     {
-        Alt.Log( "RegisterVehicleModule" );
         serviceCollection.AddTransient<IAtlasClientVehicle, AtlasVehicle>( );
         serviceCollection.AddTransient<IVehicle, Vehicle>( );
 

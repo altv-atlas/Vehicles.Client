@@ -1,5 +1,4 @@
 ﻿using AltV.Atlas.Vehicles.Client.Base;
-using AltV.Atlas.Vehicles.Client.Interfaces;
 using AltV.Net.Client;
 using AltV.Net.Client.Elements.Factories;
 using AltV.Net.Client.Elements.Interfaces;
@@ -31,7 +30,6 @@ public class AltVehicleFactory : IEntityFactory<IVehicle>
     /// <returns>A new atlas vehicle</returns>
     public IVehicle Create( ICore core, IntPtr entityPointer, uint id )
     {
-        Alt.Log( "AltVehicleFactoryCreate" );
         return ActivatorUtilities.CreateInstance<AtlasVehicle>( _serviceProvider, core, entityPointer, id );
     }
 }
