@@ -28,10 +28,10 @@ public class AtlasVehicle : Vehicle, IAtlasClientVehicle
         if( entity is not IAtlasClientVehicle atlasVehicle || atlasVehicle.Id != Id )
             return;
 
-        if( !atlasVehicle.HasStreamSyncedMetaData( "atlas.changeWheels" ) )
+        if( !atlasVehicle.HasStreamSyncedMetaData( "atlas:vehicles:changeWheels" ) )
             return;
 
-        atlasVehicle.GetStreamSyncedMetaData( "atlas.changeWheels", out string result );
+        atlasVehicle.GetStreamSyncedMetaData( "atlas:vehicles:changeWheels", out string result );
         ChangeWheels( result );
 
     }
@@ -43,7 +43,7 @@ public class AtlasVehicle : Vehicle, IAtlasClientVehicle
 
         switch( key )
         {
-            case "atlas.changeWheels":
+            case "atlas:vehicles:changeWheels":
                 if( value is string strValue )
                     ChangeWheels( strValue );
                 break;
