@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using AltV.Atlas.Vehicles.Client.Interfaces;
+using AltV.Atlas.Vehicles.Shared;
 using AltV.Atlas.Vehicles.Shared.Models;
 using AltV.Net.Client;
 using AltV.Net.Client.Elements.Entities;
@@ -28,10 +29,10 @@ public class AtlasVehicle : Vehicle, IAtlasClientVehicle
         if( entity is not IAtlasClientVehicle atlasVehicle || atlasVehicle.Id != Id )
             return;
 
-        if( !atlasVehicle.HasStreamSyncedMetaData( "atlas:vehicles:changeWheels" ) )
+        if( !atlasVehicle.HasStreamSyncedMetaData( VehicleConstants.ChangeWheelsMetaKey ) )
             return;
 
-        atlasVehicle.GetStreamSyncedMetaData( "atlas:vehicles:changeWheels", out string result );
+        atlasVehicle.GetStreamSyncedMetaData( VehicleConstants.ChangeWheelsMetaKey, out string result );
         ChangeWheels( result );
 
     }
@@ -43,7 +44,7 @@ public class AtlasVehicle : Vehicle, IAtlasClientVehicle
 
         switch( key )
         {
-            case "atlas:vehicles:changeWheels":
+            case VehicleConstants.ChangeWheelsMetaKey:
                 if( value is string strValue )
                     ChangeWheels( strValue );
                 break;
