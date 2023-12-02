@@ -2,6 +2,7 @@
 
 namespace AltV.Atlas.Vehicles.Client.Interfaces;
 
+/// <inheritdoc />
 public interface IAtlasClientVehicle : IVehicle
 {
     
