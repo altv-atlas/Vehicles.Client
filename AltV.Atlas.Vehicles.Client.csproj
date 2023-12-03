@@ -4,7 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Version>1.1.0</Version>
+        <Version>1.2.0</Version>
         <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/altv-atlas/Vehicles.Client.git</RepositoryUrl>
@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup Condition=" '$(Configuration)' != 'Debug' ">
-        <PackageReference Include="AltV.Atlas.Vehicles.Shared" Version="1.1.0" />
+        <PackageReference Include="AltV.Atlas.Vehicles.Shared" Version="1.2.0" />
     </ItemGroup>
 
 
