@@ -4,7 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Version>1.2.0</Version>
+        <Version>2.0.0</Version>
         <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/altv-atlas/Vehicles.Client.git</RepositoryUrl>
@@ -17,7 +17,7 @@
 
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath="\"/>
-      <PackageReference Include="AltV.Net.Client.Async" Version="15.0.6" />
+      <PackageReference Include="AltV.Net.Client.Async" Version="16.0.1" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     </ItemGroup>
 
@@ -25,9 +25,8 @@
         <PackageReference Include="AltV.Atlas.Vehicles.Shared" Version="1.2.0" />
     </ItemGroup>
 
-
     <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
         <ProjectReference Include="..\AltV.Atlas.Vehicles.Shared\AltV.Atlas.Vehicles.Shared.csproj" />
     </ItemGroup>
-    
+
 </Project>

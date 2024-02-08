@@ -77,6 +77,7 @@ public class AtlasVehicle : Vehicle, IAtlasClientVehicle
             SetWheelRimRadius( wheelMod.Index, wheelMod.RimRadius );
             SetWheelTrackWidth( wheelMod.Index, wheelMod.TrackWidth );
             SetWheelTyreRadius( wheelMod.Index, wheelMod.TyreRadius );
+            SetWheelTrackWidth( wheelMod.Index, wheelMod.TyreWidth );
         }
     }
 }
