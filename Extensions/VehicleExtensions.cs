@@ -34,6 +34,18 @@ public static class VehicleExtensions
     }
     
     /// <summary>
+    /// Set a ped into a vehicle at given seat
+    /// </summary>
+    /// <param name="ped">The ped to set into the vehicle</param>
+    /// <param name="vehicle">The vehicle to put the ped into</param>
+    /// <param name="seatIndex">The seat index to put the ped in to (uses natives, so start from -1)</param>
+    /// <returns>True if succeeded, false if not</returns>
+    public static Task<bool> SetIntoVehicle( this IPed ped, IVehicle vehicle, int seatIndex, uint maxAttempts = 100, uint intervalMs = 50 )
+    {
+        return SetIntoVehicle( ped.ScriptId, vehicle.ScriptId, seatIndex, maxAttempts, intervalMs );
+    }
+    
+    /// <summary>
     /// Set a player into a vehicle at given seat
     /// </summary>
     /// <param name="player">The player to set into the vehicle</param>
@@ -64,7 +76,7 @@ public static class VehicleExtensions
     /// <param name="vehicleId">The vehicle ScriptId to put the entity into</param>
     /// <param name="seatIndex">The seat index to put the entity in to (uses natives, so start from -1)</param>
     /// <returns>True if succeeded, false if not</returns>
-    public static Task<bool> SetIntoVehicle( uint entityId, uint vehicleId, int seatIndex )
+    public static Task<bool> SetIntoVehicle( uint entityId, uint vehicleId, int seatIndex, uint maxAttempts = 100, uint intervalMs = 50 )
     {
         Alt.Natives.SetPedIntoVehicle( entityId, vehicleId, -1 );
 
@@ -77,7 +89,7 @@ public static class VehicleExtensions
         interval = Alt.SetInterval( ( ) =>
         {
             attempts++;
-            if( attempts >= 100 )
+            if( attempts >= maxAttempts )
             {
                 Alt.LogError( "[PED-TRAFFIC] Failed to set ped into vehicle" );
                 taskCompletionSource.SetResult( false );
@@ -92,7 +104,7 @@ public static class VehicleExtensions
                 taskCompletionSource.SetResult( true );
                 Alt.ClearInterval( interval );
             }
-        }, 50 );
+        }, intervalMs );
 
         return taskCompletionSource.Task;
     }
